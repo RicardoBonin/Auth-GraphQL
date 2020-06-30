@@ -19,7 +19,10 @@ const Home = ({ menssage, logout }) => {
     <div className="page-home">
       <div className="header">
         <h1>Logo</h1>
-        <button onClick={logOut}>Sair</button>
+        <div>
+          <button onClick={logOut}>Sair</button>
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
       </div>
       <h1>{menssage}</h1>
       <_JSXStyle id="Home">{`
@@ -50,7 +53,13 @@ const Home = ({ menssage, logout }) => {
           width: 100%;
           padding: 20px 60px;
         }
-        .header button {
+
+        .header div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .header div button {
           width: 150px;
           height: 40px;
           align-items: center;
@@ -58,8 +67,22 @@ const Home = ({ menssage, logout }) => {
           border: solid 1px var(--primary-color);
           border-radius: 4px;
           color: white;
-          font-size: 16px;
-          font-weight: 500;
+          font-size: 18px;
+          font-weight: 600;
+          position: relative;
+          outline: none;
+        }
+
+        .header div button:active{
+          background-color: #8277a6;
+          transition: 400ms;
+        }
+
+        .header div i {
+          position: absolute;
+          font-size: 20px;
+          color: white;
+          margin-left: 36px;
         }
         .error {
           display: flex;
@@ -88,7 +111,11 @@ const Home = ({ menssage, logout }) => {
     <div className="error">
       <h1>Você não tem acesso a está página!</h1>
       <p>Volte e faça seu Login</p>
-      <Link to="/">Fazer Login!</Link>
+      <div>
+        <Link to="/">Fazer Login!</Link>
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+
       <_JSXStyle id="Home">{`
         .error {
           display: flex;
@@ -100,16 +127,37 @@ const Home = ({ menssage, logout }) => {
           padding: 40px;
 
         }
-        .error a {
+        .error div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 20px;
+        }
+        .error div a {
           background-color: var(--primary-color);
           border-color: var(--primary-color);
           border: 0;
           border-radius: 4px;
-          margin-top: 20px;
           padding: 10px;
           font-size: 16px;
           color: white;
+          text-align: center;
           text-decoration: none;
+          width: 200px;
+          position: relative;
+          padding-left: 30px;
+          font-weight: 600;
+        }
+        .error div a:active{
+          background-color: #8277a6;
+          transition: 400ms;
+
+        }
+        .error div i {
+          position: absolute;
+          font-size: 20px;
+          color: white;
+          margin-left: 30px;
         }
       `}</_JSXStyle>
     </div>

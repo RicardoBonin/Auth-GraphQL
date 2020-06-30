@@ -9,6 +9,7 @@ const Login = ({ login, loginError, error }) => {
     email: "",
     password: "",
     error: false,
+    class: "",
   };
   const [token, setToken] = useState("");
   const [state, setState] = useState(INITIAL_STATE);
@@ -39,9 +40,9 @@ const Login = ({ login, loginError, error }) => {
       })
       .catch((err) => {
         console.log(err);
-        setState({ ...state, error: true });
+        setState({ ...state, error: true, class: "error" });
         setTimeout(() => {
-          setState({ ...state, error: false });
+          setState({ ...state, error: false, class: "" });
         }, [5000]);
       });
   };
@@ -57,20 +58,28 @@ const Login = ({ login, loginError, error }) => {
       <form>
         <input
           type="email"
+          className={state.class}
           name="email"
           placeholder="e-mail"
           onChange={handleChange}
           required
         />
+        <i className="fa fa-envelope-o" aria-hidden="true"></i>
         <input
           type="password"
+          className={`${state.class}`}
           name="password"
           placeholder="senha"
           onChange={handleChange}
           required
         />
+        <i class="fas fa-lock"></i>
       </form>
-      <button onClick={logInto}>Entrar</button>
+      <div>
+        <button onClick={logInto}>Entrar</button>
+        <i class="fas fa-sign-out-alt"></i>
+      </div>
+
       {state.error && (
         <span>[ERRO] Por falvor, verifique os campos e tente novamente!</span>
       )}
@@ -96,29 +105,76 @@ const Login = ({ login, loginError, error }) => {
         .form form {
           display: flex;
           flex-direction: column;
-          margin-top: 25px
+          margin-top: 25px;
         }
         
         .form form input {
           border-radius: 4px;
           border: solid 1px #808080;
-          margin-top: 20px; 
+          margin-top: 20px;
+          color: light-dark-color;
           padding: 10px;
           font-size: 16px;
           outline-color: var(--primary-color);
           font-family: Open Sans, Arial;
+          position: relative;
+          padding-left: 30px;
+        }
+
+        .form form .error {
+          border: solid 1px red;
+          transition: 500ms;
+        }
+
+        .form form i {
+          color: var(--primary-color);
+        }
+
+
+        .form form .fa {
+          position: absolute;
+          margin-top: 33px;
+          margin-left: 8px;
+        }
+
+        .form form .fas {
+          position: absolute;
+          margin-top: 92px;
+          margin-left: 8px;
         }
         
-        .form button {
+        .form div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 20px;
+        }
+        
+        .form div button {
           background-color: var(--primary-color);
           border-color: var(--primary-color);
           border: 0;
           border-radius: 4px;
-          margin-top: 20px;
           padding: 10px;
           font-size: 16px;
           color: white;
+          outline: none;
+          position: relative;
+          font-weight: 500;
         }
+
+        .form div button:active{
+          background-color: #8277a6;
+          transition: 400ms;
+        }
+
+        .form div i {
+          position: absolute;
+          font-size: 20px;
+          color: white;
+          margin-left: 112px;
+        }
+
         .form span {
           background-color: #FF0000bb;
           color: white;
@@ -126,6 +182,28 @@ const Login = ({ login, loginError, error }) => {
           padding: 10px;
           border: solid 1px #FF0000;
           border-radius: 4px;
+          transition: 500ms;
+        }
+        @media ( max-width: 650px ){
+          .form {
+            width: 70%;
+            max-width: 90%;
+          }
+        }
+
+        @media ( max-width: 500px ){
+          .form {
+            width: 90%;
+            max-width: 90%;
+          }
+        }
+
+        @media ( max-width: 400px ){
+          .form {
+            width: 90%;
+            max-width: 90%;
+            padding: 60px 20px;
+          }
         }
       `}</_JSXStyle>
     </div>

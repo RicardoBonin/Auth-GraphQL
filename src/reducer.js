@@ -20,6 +20,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         logged: false,
         error: true,
       };
+
     case "LOGOUT":
       return {
         ...state,

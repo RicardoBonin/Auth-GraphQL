@@ -18,6 +18,7 @@ export const loginError = (logged, error) => {
     },
   };
 };
+
 export const logout = (logged, token, text) => {
   return {
     type: "LOGIN_SUCCESS",
