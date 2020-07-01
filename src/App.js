@@ -36,6 +36,11 @@ function App() {
               align-items: center;
               font-family: 'Montserrat', sans-serif;
             }
+
+            h1, h2, h3, h4 {
+              color: var(--primary-color)
+            }
+
             .App {
               height: 100vh;
               width: 100vw;

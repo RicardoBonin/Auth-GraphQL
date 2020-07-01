@@ -172,7 +172,7 @@ const Login = ({ login, loginError, error }) => {
           position: absolute;
           font-size: 20px;
           color: white;
-          margin-left: 112px;
+          margin-left: 75px;
         }
 
         .form span {
@@ -182,7 +182,6 @@ const Login = ({ login, loginError, error }) => {
           padding: 10px;
           border: solid 1px #FF0000;
           border-radius: 4px;
-          transition: 500ms;
         }
         @media ( max-width: 650px ){
           .form {

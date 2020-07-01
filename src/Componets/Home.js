@@ -24,7 +24,10 @@ const Home = ({ menssage, logout }) => {
           <i class="fas fa-sign-out-alt"></i>
         </div>
       </div>
-      <h1>{menssage}</h1>
+      <main>
+        <h1>{menssage}</h1>
+      </main>
+
       <_JSXStyle id="Home">{`
         .page-home {
           display: flex;
@@ -34,16 +37,25 @@ const Home = ({ menssage, logout }) => {
           align-items: center;
           
         }
-        .page-home h1 {
-          margin-top: 30px;
+        
+        .page-home main{
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           background-color: aliceblue;
           border-radius: 4px;
-          padding: 40px;
+          margin-top: 20px;
+          width: 90%;
+          padding: 20px;
+          text-aligin: center;
         }
+
+        .page-home main h1 {
+          width: 90%;
+          text-align: center;
+        }
+
         .header {
           background-color: aliceblue;
           border-radius: 4px;
@@ -51,7 +63,7 @@ const Home = ({ menssage, logout }) => {
           justify-content: space-between;
           align-items: center;
           width: 100%;
-          padding: 20px 60px;
+          padding: 20px 40px;
         }
 
         .header div {
@@ -59,6 +71,7 @@ const Home = ({ menssage, logout }) => {
           flex-direction: column;
           justify-content: center;
         }
+
         .header div button {
           width: 150px;
           height: 40px;
@@ -75,7 +88,7 @@ const Home = ({ menssage, logout }) => {
 
         .header div button:active{
           background-color: #8277a6;
-          transition: 400ms;
+
         }
 
         .header div i {
@@ -94,16 +107,50 @@ const Home = ({ menssage, logout }) => {
           padding: 40px;
 
         }
-        .error a {
+        .error div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 20px;
+        }
+        .error div a {
           background-color: var(--primary-color);
           border-color: var(--primary-color);
           border: 0;
           border-radius: 4px;
-          margin-top: 20px;
           padding: 10px;
           font-size: 16px;
           color: white;
+          text-align: center;
           text-decoration: none;
+          width: 200px;
+          position: relative;
+          padding-left: 30px;
+          font-weight: 600;
+        }
+        .error div a:active{
+          background-color: #8277a6;
+          transition: 400ms;
+
+        }
+        .error div i {
+          position: absolute;
+          font-size: 20px;
+          color: white;
+          margin-left: 30px;
+        }
+
+        @media(max-width: 700px) {
+          .error {
+            width: 90%;
+          }
+        }
+
+        @media (max-width: 569px) {
+          h1 {
+            font-size: 4vw;
+          }
+          
         }
       `}</_JSXStyle>
     </div>
@@ -158,6 +205,14 @@ const Home = ({ menssage, logout }) => {
           font-size: 20px;
           color: white;
           margin-left: 30px;
+        }
+        @media(max-width: 700px) {
+          .error {
+            width: 90%;
+          }
+          .error h1 {
+            text-align: center;
+          }
         }
       `}</_JSXStyle>
     </div>
