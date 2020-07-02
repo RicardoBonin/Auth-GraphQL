@@ -9,7 +9,7 @@ O estilo e a responsividade foram tratados através do JSXStyled.
 
 ### Frameworks, linguagens e bibliotecas
 
-- ReactJS
+- <img src="/src/assets/react"/>ReactJS
 - JavaStript
 - CSS
 - JSXStyled
